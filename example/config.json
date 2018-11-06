@@ -1,0 +1,9 @@
+{
+"client_id": "YOUR_CONSUMER_KEY",
+"client_secret": "YOUR_CONSUMER_SECRET",
+"redirect_uri": "https://a.callback.url",
+"access_token": "access-token-if-known-otherwise-remove",
+"refresh_token": "access-token-if-known-otherwise-remove",
+"expires_at": "2018-01-01T01:00:00.000Z",
+"debug": "off"
+}
