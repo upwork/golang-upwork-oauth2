@@ -36,6 +36,7 @@ const (
     AccessTokenEP = BaseHost + DefaultEpoint + "/v3/oauth2/token"
     DataFormat = "json"
     OverloadParam = "http_method"
+    UPWORK_LIBRARY_USER_AGENT = "Github Upwork API Golang Library"
 
     // response types
     ByteResponse = "[]byte"
@@ -48,6 +49,7 @@ type ApiClient struct {
     oconf *oauth2.Config
     token *oauth2.Token
     oclient *http.Client
+    config *Config
 
     // refresh token notify function
     rnfunc TokenNotifyFunc
@@ -56,6 +58,7 @@ type ApiClient struct {
     ep string
     respType string
     sendPostAsJson bool
+    hasCustomHttpClient bool
 }
 
 // TokenNotifyFunc is a function that accepts an oauth2 Token upon refresh, and
@@ -73,6 +76,8 @@ type NotifyingTokenSource struct {
 func Setup(config *Config) (client ApiClient) {
     var c ApiClient
 
+    c.config = config
+
     c.oconf = &oauth2.Config{
         ClientID:     config.ClientId,
         ClientSecret: config.ClientSecret,
@@ -82,6 +87,8 @@ func Setup(config *Config) (client ApiClient) {
 	    AuthURL:  AuthorizationEP,
         },
     }
+
+    c.hasCustomHttpClient = config.HasCustomHttpClient
 
     // Force setup of client_id as a parameter
     oauth2.RegisterBrokenAuthHeaderProvider(BaseHost)
@@ -148,6 +155,8 @@ func (c *ApiClient) GetAuthorizationUrl(stateString string) (authzUrl string) {
 
 // Get access token using a specific authorization code
 func (c *ApiClient) GetToken(ctx context.Context, authzCode string) (*oauth2.Token) {
+    ctx = c.config.SetOwnHttpClient(ctx)
+
     accessToken, err := c.oconf.Exchange(ctx, strings.Trim(authzCode, "\n"))
     if err != nil {
         log.Fatal(err)
@@ -205,9 +214,13 @@ func (c *ApiClient) Delete(uri string, params map[string]string) (r *http.Respon
 
 // setup/save authorized oauth2 client, based on received or provided access/refresh token pair
 func (c *ApiClient) setupOauth2Client(ctx context.Context) {
+    if (c.hasCustomHttpClient == false) {
+	ctx = c.config.SetOwnHttpClient(ctx)
+    }
+
     if c.rnfunc != nil {
         // setup notifier for token-refresh workflow - https://github.com/golang/oauth2/issues/84
-        realSource := c.oconf.TokenSource(context.Background(), c.token)
+        realSource := c.oconf.TokenSource(ctx, c.token)
         notifyingSrc := NewNotifyingTokenSource(realSource, c.rnfunc)
         notifyingWithInitialSrc := oauth2.ReuseTokenSource(c.token, notifyingSrc)
         // setup authorized oauth2 client

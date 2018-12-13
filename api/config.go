@@ -30,6 +30,11 @@ const (
     TIMEFORMAT = "2006-01-02T15:04:05.000Z" // NOTE: time.RFC3339 does not work for unclear reason?
 )
 
+type HeadersTransport struct {
+    rt http.RoundTripper
+    uaHeader string
+}
+
 // Config
 type Config struct {
     ClientId string
@@ -41,6 +46,7 @@ type Config struct {
     ExpiresAt time.Time
     State string
     Debug bool
+    HasCustomHttpClient bool
 }
 
 // List of required configuration keys
@@ -118,9 +124,27 @@ func ReadConfig(fn string) (settings *Config) {
     return NewConfig(config)
 }
 
+// RoundTrip for the RoundTripper interface
+func (t *HeadersTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+    req.Header.Set("User-Agent", t.uaHeader)
+
+    return t.rt.RoundTrip(req)
+}
+
 // Configure a context with the custom http client
 func (cfg *Config) SetCustomHttpClient(ctx context.Context, httpClient *http.Client) context.Context {
+    cfg.HasCustomHttpClient = true
     return context.WithValue(ctx, oauth2.HTTPClient, httpClient)
+}
+
+// Configure a context with the own http client over RoundTripper
+func (cfg *Config) SetOwnHttpClient(ctx context.Context) context.Context {
+    cfg.HasCustomHttpClient = false
+
+    // Prepare wrapper to fix User-Agent header
+    var transport http.RoundTripper = &HeadersTransport{http.DefaultTransport, UPWORK_LIBRARY_USER_AGENT}
+
+    return context.WithValue(ctx, oauth2.HTTPClient, &http.Client{Transport: transport})
 }
 
 // Test print of found/assigned key
