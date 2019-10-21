@@ -45,12 +45,12 @@ func (r a) GetSkills() (*http.Response, interface{}) {
 }
 
 // Get skills (V2)
-func (r a) GetSkillsV2() (*http.Response, []byte) {
+func (r a) GetSkillsV2() (*http.Response, interface{}) {
     return r.client.Get("/profiles/v2/metadata/skills", nil)
 }
 
 // Get specialties
-func (r a) GetSpecialties() (*http.Response, []byte) {
+func (r a) GetSpecialties() (*http.Response, interface{}) {
     return r.client.Get("/profiles/v1/metadata/specialties", nil)
 }
 
