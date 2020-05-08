@@ -34,7 +34,12 @@ func New(c *api.ApiClient) *a {
     return &a{c}
 }
 
+// Get Workdiary by Company
+func (r a) GetByCompany(company string, date string, params map[string]string) (*http.Response, interface{}) {
+    return r.client.Get("/team/v3/workdiaries/companies/" + company + "/" + date, params)
+}
+
 // Get Workdiary by Contract
 func (r a) GetByContract(contract string, date string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/team/v2/workdiaries/contracts/" + contract + "/" + date, params)
+    return r.client.Get("/team/v3/workdiaries/contracts/" + contract + "/" + date, params)
 }
