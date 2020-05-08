@@ -36,15 +36,15 @@ func New(c *api.ApiClient) *a {
 
 // Get snapshot info by specific contract
 func (r a) GetByContract(contractId string, ts string) (*http.Response, interface{}) {
-    return r.client.Get("/team/v2/snapshots/contracts/" + contractId + "/" + ts, nil)
+    return r.client.Get("/team/v3/snapshots/contracts/" + contractId + "/" + ts, nil)
 }
 
 // Update snapshot by specific contract
 func (r a) UpdateByContract(contractId string, ts string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/team/v2/snapshots/contracts/" + contractId + "/" + ts, params)
+    return r.client.Post("/team/v3/snapshots/contracts/" + contractId + "/" + ts, params)
 }
 
 // Delete snapshot by specific contract
 func (r a) DeleteByContract(contractId string, ts string) (*http.Response, interface{}) {
-    return r.client.Delete("/team/v2/snapshots/contracts/" + contractId + "/" + ts, nil)
+    return r.client.Delete("/team/v3/snapshots/contracts/" + contractId + "/" + ts, nil)
 }
