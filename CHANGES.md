@@ -1,3 +1,6 @@
+## 2.1.2
+* Send Message to a Batch of Rooms API
+
 ## 2.1.1
 * Add Room Messages API
 * Sync-up routers with OAuth1 version
@@ -6,7 +9,7 @@
 * Add Specialties API
 * Add Skills V2 API
 
-# 2.0.1
+## 2.0.1
 * Set library User-Agent
 
 ## 2.0.0
