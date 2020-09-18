@@ -74,6 +74,11 @@ func (r a) SendMessageToRoom(company string, roomId string, params map[string]st
     return r.client.Post("/messages/v3/" + company + "/rooms/" + roomId + "/stories", params)
 }
 
+// Send a message to a batch of rooms
+func (r a) SendMessageToRooms(company string, params map[string]string) (*http.Response, interface{}) {
+    return r.client.Post("/messages/v3/" + company + "/stories/batch", params)
+}
+
 // Update a room settings
 func (r a) UpdateRoomSettings(company string, roomId string, username string, params map[string]string) (*http.Response, interface{}) {
     return r.client.Put("/messages/v3/" + company + "/rooms/" + roomId + "/users/" + username, params)
