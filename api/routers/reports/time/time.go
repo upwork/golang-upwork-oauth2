@@ -55,12 +55,12 @@ func (r a) GetByCompany(company string, params map[string]string) (*http.Respons
 }
 
 // Generating Freelancer's Specific Reports (with financial info)
-func (r a) GetByFreelancerFull(freelancerId string, agency string, params map[string]string) (*http.Response, interface{}) {
+func (r a) GetByFreelancerFull(freelancerId string, params map[string]string) (*http.Response, interface{}) {
     return r.client.Get("/timereports/v1/providers/" + freelancerId, params)
 }
 
 // Generating Freelancer's Specific Reports (hide financial info)
-func (r a) GetByFreelancerLimited(freelancerId string, agency string, params map[string]string) (*http.Response, interface{}) {
+func (r a) GetByFreelancerLimited(freelancerId string, params map[string]string) (*http.Response, interface{}) {
     return r.client.Get("/timereports/v1/providers/" + freelancerId + "/hours", params)
 }
 

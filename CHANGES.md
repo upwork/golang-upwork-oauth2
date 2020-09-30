@@ -1,3 +1,7 @@
+## 2.1.3
+* Fix query string issue in Client
+* Fix Time Reports API for Freelancer
+
 ## 2.1.2
 * Send Message to a Batch of Rooms API
 
