@@ -189,10 +189,17 @@ func (c *ApiClient) Get(uri string, params map[string]string) (r *http.Response,
         qstr = qstr[0:len(qstr)-1]
     }
     u := &url.URL{Path: qstr}
+
     // https://github.com/mrjones/oauth/issues/34
     encQuery := strings.Replace(u.String(), ";", "%3B", -1)
+    encQuery = strings.Replace(encQuery, "./", "?", 1) // see URL.String method to understand when "./" is returned
 
-    response, err := c.oclient.Get(formatUri(uri, c.ep) + "?" + encQuery)
+    // non-empty string may miss "?"
+    if encQuery[:1] != "?" {
+        encQuery = "?" + encQuery
+    }
+
+    response, err := c.oclient.Get(formatUri(uri, c.ep) + encQuery)
 
     return c.getTypedResponse(response, err)
 }
