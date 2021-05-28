@@ -1,3 +1,9 @@
+## 2.1.5
+* Add GraphQL support
+
+## 2.1.4
+* Fix 'slice bounds out of range' in newer versions of golang
+
 ## 2.1.3
 * Fix query string issue in Client
 * Fix Time Reports API for Freelancer

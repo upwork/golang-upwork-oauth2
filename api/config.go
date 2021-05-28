@@ -33,6 +33,7 @@ const (
 type HeadersTransport struct {
     rt http.RoundTripper
     uaHeader string
+    xTenantIdHeader string
 }
 
 // Config
@@ -47,6 +48,7 @@ type Config struct {
     State string
     Debug bool
     HasCustomHttpClient bool
+    TenantIdHeader string // X-Upwork-API-TenantId required for GraphQL requests
 }
 
 // List of required configuration keys
@@ -128,7 +130,19 @@ func ReadConfig(fn string) (settings *Config) {
 func (t *HeadersTransport) RoundTrip(req *http.Request) (*http.Response, error) {
     req.Header.Set("User-Agent", t.uaHeader)
 
+    if t.xTenantIdHeader != "" {
+        req.Header.Set("X-Upwork-API-TenantId", t.xTenantIdHeader)
+    }
+
     return t.rt.RoundTrip(req)
+}
+
+// Configure X-Upwork-API-TenantId header for OwnHttpClient
+func (cfg *Config) SetOrgUidHeader(tenantId string) {
+    if (cfg.HasCustomHttpClient == true) {
+        panic("SetOrgUidHeader can not be used with the custom client. Add X-Upwork-API-TenantId header manually.")
+    }
+    cfg.TenantIdHeader = tenantId
 }
 
 // Configure a context with the custom http client
@@ -142,7 +156,7 @@ func (cfg *Config) SetOwnHttpClient(ctx context.Context) context.Context {
     cfg.HasCustomHttpClient = false
 
     // Prepare wrapper to fix User-Agent header
-    var transport http.RoundTripper = &HeadersTransport{http.DefaultTransport, UPWORK_LIBRARY_USER_AGENT}
+    var transport http.RoundTripper = &HeadersTransport{http.DefaultTransport, UPWORK_LIBRARY_USER_AGENT, cfg.TenantIdHeader}
 
     return context.WithValue(ctx, oauth2.HTTPClient, &http.Client{Transport: transport})
 }

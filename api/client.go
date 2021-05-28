@@ -23,6 +23,7 @@ import (
     "net/http"
     "net/url"
     "io/ioutil"
+    "encoding/json"
 
     "golang.org/x/oauth2"
 )
@@ -32,6 +33,7 @@ const (
     // oauth2 and api flow
     BaseHost = "https://www.upwork.com/"
     DefaultEpoint = "api"
+    GqlEndpoint = "https://api.upwork.com/graphql"
     AuthorizationEP = BaseHost + "ab/account-security/oauth2/authorize"
     AccessTokenEP = BaseHost + DefaultEpoint + "/v3/oauth2/token"
     DataFormat = "json"
@@ -237,9 +239,23 @@ func (c *ApiClient) setupOauth2Client(ctx context.Context) {
     }
 }
 
+// setup X-Upwork-API-TenantId header
+func (c *ApiClient) SetOrgUidHeader(ctx context.Context, tenantId string) {
+    c.config.SetOrgUidHeader(tenantId)
+    c.setupOauth2Client(ctx)
+}
+
 // run post/put/delete requests
 func (c *ApiClient) sendPostRequest(uri string, params map[string]string) (*http.Response, interface{}) {
-    if c.sendPostAsJson == true {
+    var (
+        response *http.Response
+        err error
+    )
+
+    if c.ep == "graphql" {
+        jsonStr, _ := json.Marshal(params) // params contain json data in this case
+        response, err = c.oclient.Post(GqlEndpoint, "application/json", bytes.NewBuffer(jsonStr))
+    } else if c.sendPostAsJson == true {
 	// old style for backward compatibility with the old library
         var jsonStr = []byte("{}")
         if params != nil {
@@ -250,9 +266,7 @@ func (c *ApiClient) sendPostRequest(uri string, params map[string]string) (*http
             jsonStr = []byte(fmt.Sprintf("{%s}", str[0:len(str)-1]))
         }
 
-	response, err := c.oclient.Post(formatUri(uri, c.ep), "application/json", bytes.NewBuffer(jsonStr))
-
-        return c.getTypedResponse(response, err)
+        response, err = c.oclient.Post(formatUri(uri, c.ep), "application/json", bytes.NewBuffer(jsonStr))
     } else {
 	// prefered
         urlValues := url.Values{}
@@ -262,10 +276,10 @@ func (c *ApiClient) sendPostRequest(uri string, params map[string]string) (*http
             }
         }
 
-	response, err := c.oclient.PostForm(formatUri(uri, c.ep), urlValues)
-
-        return c.getTypedResponse(response, err)
+        response, err = c.oclient.PostForm(formatUri(uri, c.ep), urlValues)
     }
+
+    return c.getTypedResponse(response, err)
 }
 
 // return proper response type

@@ -25,7 +25,8 @@ import (
 
     "github.com/upwork/golang-upwork-oauth2/api"
     "github.com/upwork/golang-upwork-oauth2/api/routers/auth"
-    _ "github.com/upwork/golang-upwork-oauth2/api/routers/messages" // uncomment to test messages examples
+    _ "github.com/upwork/golang-upwork-oauth2/api/routers/messages" // uncomment to test messages example
+    _ "github.com/upwork/golang-upwork-oauth2/api/routers/graphql" // uncomment to test graphql example
 )
 
 const cfgFile = "config.json" // update the path to your config file, or provide properties directly in your code
@@ -52,11 +53,15 @@ func main() {
     ctx = config.SetCustomHttpClient(ctx, httpClient)
     client := api.Setup(config)
 */
-    //client.SetPostAsJson(true)
-
     ctx = context.TODO() // define NoContext if you do not use a custom client, otherwise use earlier defined context
     client := api.Setup(api.ReadConfig(cfgFile))
-    // client.SetPostAsJson(true) // you can configure the package send the requests as application/json, by default PostForm is used
+    // You can configure the package send the requests as application/json, by default PostForm is used.
+    // This will be automatically set to true for GraphQL request
+    // client.SetPostAsJson(true)
+
+    // GraphQL requests require X-Upwork-API-TenantId header, which can be setup using the following method
+    // client.SetOrgUidHeader(ctx, "1234567890") // Organization UID
+
 /*
     // WARNING: oauth2 library will refresh the access token for you
     // Setup notify function for refresh-token-workflow
@@ -113,6 +118,23 @@ func main() {
     // params := make(map[string]string)
     // params["tq"] = "select memo where worked_on >= '05-08-2015'"
     // params["tqx"] = "out:json"
-    // _, jsonDataFromHttp4 := timereports.New(&client).GetByFreelancerFull(params)
+    // _, jsonDataFromHttp3 := timereports.New(&client).GetByFreelancerFull(params)
+    // fmt.Println(string(jsonDataFromHttp3.([]byte)))
+
+    // sending GraphQL request
+    // jsonData := map[string]string{
+    //     "query": `
+    //       {
+    //         user {
+    //           id
+    //           nid
+    //         }
+    //         organization {
+    //           id
+    //         }
+    //      }
+    //    `,
+    //  }
+    // _, jsonDataFromHttp4 := graphql.New(&client).Execute(jsonData)
     // fmt.Println(string(jsonDataFromHttp4.([]byte)))
 }
