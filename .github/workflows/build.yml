@@ -34,7 +34,7 @@ jobs:
       - name: Install all Go dependencies
         run: |
           go get golang.org/x/oauth2 &&
-          go get github.com/upwork/golang-upwork-oauth2
+          go get -u github.com/upwork/golang-upwork-oauth2/api
 
       # step 4: run test
       - name: go test
