@@ -60,7 +60,7 @@ func main() {
     // client.SetPostAsJson(true)
 
     // GraphQL requests require X-Upwork-API-TenantId header, which can be setup using the following method
-    // client.SetOrgUidHeader(ctx, "1234567890") // Organization UID
+    // client.SetOrgUidHeader(ctx, "1234567890") // Organization UID (optional)
 
 /*
     // WARNING: oauth2 library will refresh the access token for you
