@@ -32,7 +32,7 @@ import (
 // Define end points
 const (
 	// oauth2 and api flow
-	BaseHost                  = "https://stage.upwork.com/"
+	BaseHost                  = "https://www.upwork.com/"
 	DefaultEpoint             = "api"
 	GqlEndpoint               = "https://api.upwork.com/graphql"
 	AuthorizationEP           = BaseHost + "ab/account-security/oauth2/authorize"
