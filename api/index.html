@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>api - Go Documentation Server</title>
+
+<link type="text/css" rel="stylesheet" href="../lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="../lib/godoc/jquery.js" defer></script>
+
+
+
+<script>var goVersion = "go1.18.1";</script>
+<script src="../lib/godoc/godocs.js" defer></script>
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="http://localhost:6060/pkg/">Go Documentation Server</a></div>
+<div class="top-heading" id="heading-narrow"><a href="http://localhost:6060/pkg/">GoDoc</a></div>
+<a href="index.html#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+<form method="GET" action="http://localhost:6060/search">
+<div id="menu">
+
+<span class="search-box"><input type="search" id="search" name="q" placeholder="Search" aria-label="Search" required><button type="submit"><span><!-- magnifying glass: --><svg width="24" height="24" viewBox="0 0 24 24"><title>submit search</title><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></span></button></span>
+</div>
+</form>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package api
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/upwork/golang-upwork-oauth2/api"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="index.html#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="index.html#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="index.html#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+Package implements access to Upwork API
+</p>
+<p>
+Licensed under the Upwork&#39;s API Terms of Use;
+you may not use this file except in compliance with the Terms.
+</p>
+<p>
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</p>
+<p>
+Author::    Maksym Novozhylov (mnovozhilov@upwork.com)
+Copyright:: Copyright 2018(c) Upwork.com
+License::   See LICENSE.txt and TOS - <a href="https://developers.upwork.com/api-tos.html">https://developers.upwork.com/api-tos.html</a>
+</p>
+<h3 id="hdr-Package_implements_access_to_Upwork_API">Package implements access to Upwork API</h3>
+<p>
+Licensed under the Upwork&#39;s API Terms of Use;
+you may not use this file except in compliance with the Terms.
+</p>
+<p>
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</p>
+<p>
+Author::    Maksym Novozhylov (mnovozhilov@upwork.com)
+Copyright:: Copyright 2018(c) Upwork.com
+License::   See LICENSE.txt and TOS - <a href="https://developers.upwork.com/api-tos.html">https://developers.upwork.com/api-tos.html</a>
+</p>
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="index.html#pkg-constants">Constants</a></dd>
+			
+			
+			
+			
+				
+				<dd><a href="index.html#ApiClient">type ApiClient</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Setup">func Setup(config *Config) (client ApiClient)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.Delete">func (c *ApiClient) Delete(uri string, params map[string]string) (r *http.Response, re interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.Get">func (c *ApiClient) Get(uri string, params map[string]string) (r *http.Response, re interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.GetAuthorizationUrl">func (c *ApiClient) GetAuthorizationUrl(stateString string) (authzUrl string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.GetToken">func (c *ApiClient) GetToken(ctx context.Context, authzCode string) *oauth2.Token</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.HasAccessToken">func (c *ApiClient) HasAccessToken(ctx context.Context) bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.Post">func (c *ApiClient) Post(uri string, params map[string]string) (r *http.Response, re interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.Put">func (c *ApiClient) Put(uri string, params map[string]string) (r *http.Response, re interface{})</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.SetApiResponseType">func (c *ApiClient) SetApiResponseType(t string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.SetEntryPoint">func (c *ApiClient) SetEntryPoint(ep string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.SetOrgUidHeader">func (c *ApiClient) SetOrgUidHeader(ctx context.Context, tenantId string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.SetPostAsJson">func (c *ApiClient) SetPostAsJson(t bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ApiClient.SetRefreshTokenNotifyFunc">func (c *ApiClient) SetRefreshTokenNotifyFunc(f TokenNotifyFunc)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#Config">type Config</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#NewConfig">func NewConfig(data map[string]string) (settings *Config)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#ReadConfig">func ReadConfig(fn string) (settings *Config)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.Print">func (cfg *Config) Print()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.SetCustomHttpClient">func (cfg *Config) SetCustomHttpClient(ctx context.Context, httpClient *http.Client) context.Context</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.SetOrgUidHeader">func (cfg *Config) SetOrgUidHeader(tenantId string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#Config.SetOwnHttpClient">func (cfg *Config) SetOwnHttpClient(ctx context.Context) context.Context</a></dd>
+				
+			
+				
+				<dd><a href="index.html#HeadersTransport">type HeadersTransport</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#HeadersTransport.RoundTrip">func (t *HeadersTransport) RoundTrip(req *http.Request) (*http.Response, error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#NotifyingTokenSource">type NotifyingTokenSource</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#NewNotifyingTokenSource">func NewNotifyingTokenSource(src oauth2.TokenSource, f TokenNotifyFunc) *NotifyingTokenSource</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="index.html#NotifyingTokenSource.Token">func (s *NotifyingTokenSource) Token() (*oauth2.Token, error)</a></dd>
+				
+			
+				
+				<dd><a href="index.html#TokenNotifyFunc">type TokenNotifyFunc</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go">client.go</a>
+			
+				<a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go">config.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				<p>
+Define end points
+</p>
+
+				<pre>const (
+    <span class="comment">// oauth2 and api flow</span>
+    <span id="BaseHost">BaseHost</span>                  = &#34;https://www.upwork.com/&#34;
+    <span id="DefaultEpoint">DefaultEpoint</span>             = &#34;api&#34;
+    <span id="GqlEndpoint">GqlEndpoint</span>               = &#34;https://api.upwork.com/graphql&#34;
+    <span id="AuthorizationEP">AuthorizationEP</span>           = <a href="index.html#BaseHost">BaseHost</a> + &#34;ab/account-security/oauth2/authorize&#34;
+    <span id="AccessTokenEP">AccessTokenEP</span>             = <a href="index.html#BaseHost">BaseHost</a> + <a href="index.html#DefaultEpoint">DefaultEpoint</a> + &#34;/v3/oauth2/token&#34;
+    <span id="DataFormat">DataFormat</span>                = &#34;json&#34;
+    <span id="OverloadParam">OverloadParam</span>             = &#34;http_method&#34;
+    <span id="UPWORK_LIBRARY_USER_AGENT">UPWORK_LIBRARY_USER_AGENT</span> = &#34;Github Upwork API Golang Library&#34;
+
+    <span class="comment">// response types</span>
+    <span id="ByteResponse">ByteResponse</span>  = &#34;[]byte&#34;
+    <span id="ErrorResponse">ErrorResponse</span> = &#34;error&#34;
+)</pre>
+			
+				
+				<pre>const (
+    <span id="TIMEFORMAT">TIMEFORMAT</span> = &#34;2006-01-02T15:04:05.000Z&#34; <span class="comment">// NOTE: time.RFC3339 does not work for unclear reason?</span>
+)</pre>
+			
+		
+		
+		
+		
+			
+			
+			<h2 id="ApiClient">type <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=1452:1855#L40">ApiClient</a>
+				<a class="permalink" href="index.html#ApiClient">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Api client
+</p>
+
+			<pre>type ApiClient struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="Setup">func <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=2290:2335#L72">Setup</a>
+					<a class="permalink" href="index.html#Setup">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func Setup(config *<a href="index.html#Config">Config</a>) (client <a href="index.html#ApiClient">ApiClient</a>)</pre>
+				<p>
+Setup client using specific config
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="ApiClient.Delete">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=6495:6594#L232">Delete</a>
+					<a class="permalink" href="index.html#ApiClient.Delete">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) Delete(uri <a href="http://localhost:6060/pkg/builtin/#string">string</a>, params map[<a href="http://localhost:6060/pkg/builtin/#string">string</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>) (r *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Response">Response</a>, re interface{})</pre>
+				<p>
+DELETE method for client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.Get">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=5307:5403#L195">Get</a>
+					<a class="permalink" href="index.html#ApiClient.Get">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) Get(uri <a href="http://localhost:6060/pkg/builtin/#string">string</a>, params map[<a href="http://localhost:6060/pkg/builtin/#string">string</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>) (r *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Response">Response</a>, re interface{})</pre>
+				<p>
+GET method for client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.GetAuthorizationUrl">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=4266:4343#L151">GetAuthorizationUrl</a>
+					<a class="permalink" href="index.html#ApiClient.GetAuthorizationUrl">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) GetAuthorizationUrl(stateString <a href="http://localhost:6060/pkg/builtin/#string">string</a>) (authzUrl <a href="http://localhost:6060/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Receive an authorization URL in Code Authorization Grant
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.GetToken">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=4544:4625#L161">GetToken</a>
+					<a class="permalink" href="index.html#ApiClient.GetToken">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) GetToken(ctx <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a>, authzCode <a href="http://localhost:6060/pkg/builtin/#string">string</a>) *<a href="http://localhost:6060/pkg/golang.org/x/oauth2/">oauth2</a>.<a href="http://localhost:6060/pkg/golang.org/x/oauth2/#Token">Token</a></pre>
+				<p>
+Get access token using a specific authorization code
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.HasAccessToken">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=5078:5138#L186">HasAccessToken</a>
+					<a class="permalink" href="index.html#ApiClient.HasAccessToken">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) HasAccessToken(ctx <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a>) <a href="http://localhost:6060/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Check if client contains already a access/refresh token pair
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.Post">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=6134:6231#L222">Post</a>
+					<a class="permalink" href="index.html#ApiClient.Post">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) Post(uri <a href="http://localhost:6060/pkg/builtin/#string">string</a>, params map[<a href="http://localhost:6060/pkg/builtin/#string">string</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>) (r *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Response">Response</a>, re interface{})</pre>
+				<p>
+POST method for client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.Put">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=6301:6397#L227">Put</a>
+					<a class="permalink" href="index.html#ApiClient.Put">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) Put(uri <a href="http://localhost:6060/pkg/builtin/#string">string</a>, params map[<a href="http://localhost:6060/pkg/builtin/#string">string</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>) (r *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Response">Response</a>, re interface{})</pre>
+				<p>
+PUT method for client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.SetApiResponseType">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=4027:4075#L141">SetApiResponseType</a>
+					<a class="permalink" href="index.html#ApiClient.SetApiResponseType">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) SetApiResponseType(t <a href="http://localhost:6060/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Set API response type
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.SetEntryPoint">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=4145:4189#L146">SetEntryPoint</a>
+					<a class="permalink" href="index.html#ApiClient.SetEntryPoint">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) SetEntryPoint(ep <a href="http://localhost:6060/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Set entry point, e.g requested from a router
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.SetOrgUidHeader">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=7549:7622#L259">SetOrgUidHeader</a>
+					<a class="permalink" href="index.html#ApiClient.SetOrgUidHeader">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) SetOrgUidHeader(ctx <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a>, tenantId <a href="http://localhost:6060/pkg/builtin/#string">string</a>)</pre>
+				<p>
+setup X-Upwork-API-TenantId header
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.SetPostAsJson">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=3933:3974#L136">SetPostAsJson</a>
+					<a class="permalink" href="index.html#ApiClient.SetPostAsJson">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) SetPostAsJson(t <a href="http://localhost:6060/pkg/builtin/#bool">bool</a>)</pre>
+				<p>
+Set request type for non-Get requests
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="ApiClient.SetRefreshTokenNotifyFunc">func (*ApiClient) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=3808:3872#L131">SetRefreshTokenNotifyFunc</a>
+					<a class="permalink" href="index.html#ApiClient.SetRefreshTokenNotifyFunc">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="index.html#ApiClient">ApiClient</a>) SetRefreshTokenNotifyFunc(f <a href="index.html#TokenNotifyFunc">TokenNotifyFunc</a>)</pre>
+				<p>
+Set refresh token notify function
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Config">type <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=1033:1445#L30">Config</a>
+				<a class="permalink" href="index.html#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Config
+</p>
+
+			<pre>type Config struct {
+<span id="Config.ClientId"></span>    ClientId            <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.ClientSecret"></span>    ClientSecret        <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.AccessToken"></span>    AccessToken         <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.RefreshToken"></span>    RefreshToken        <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.RedirectUri"></span>    RedirectUri         <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.ExpiresIn"></span>    ExpiresIn           <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.ExpiresAt"></span>    ExpiresAt           <a href="http://localhost:6060/pkg/time/">time</a>.<a href="http://localhost:6060/pkg/time/#Time">Time</a>
+<span id="Config.State"></span>    State               <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.GrantType"></span>    GrantType           <a href="http://localhost:6060/pkg/builtin/#string">string</a>
+<span id="Config.Debug"></span>    Debug               <a href="http://localhost:6060/pkg/builtin/#bool">bool</a>
+<span id="Config.HasCustomHttpClient"></span>    HasCustomHttpClient <a href="http://localhost:6060/pkg/builtin/#bool">bool</a>
+<span id="Config.TenantIdHeader"></span>    TenantIdHeader      <a href="http://localhost:6060/pkg/builtin/#string">string</a> <span class="comment">// X-Upwork-API-TenantId required for GraphQL requests</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConfig">func <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=1569:1626#L49">NewConfig</a>
+					<a class="permalink" href="index.html#NewConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConfig(data map[<a href="http://localhost:6060/pkg/builtin/#string">string</a>]<a href="http://localhost:6060/pkg/builtin/#string">string</a>) (settings *<a href="index.html#Config">Config</a>)</pre>
+				<p>
+Create a new config
+</p>
+
+				
+				
+			
+				
+				<h3 id="ReadConfig">func <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=2539:2584#L95">ReadConfig</a>
+					<a class="permalink" href="index.html#ReadConfig">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func ReadConfig(fn <a href="http://localhost:6060/pkg/builtin/#string">string</a>) (settings *<a href="index.html#Config">Config</a>)</pre>
+				<p>
+Read a specific configuration (json) file
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Config.Print">func (*Config) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=4609:4635#L166">Print</a>
+					<a class="permalink" href="index.html#Config.Print">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg *<a href="index.html#Config">Config</a>) Print()</pre>
+				<p>
+Test print of found/assigned key
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.SetCustomHttpClient">func (*Config) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=3940:4040#L150">SetCustomHttpClient</a>
+					<a class="permalink" href="index.html#Config.SetCustomHttpClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg *<a href="index.html#Config">Config</a>) SetCustomHttpClient(ctx <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a>, httpClient *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Client">Client</a>) <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a></pre>
+				<p>
+Configure a context with the custom http client
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.SetOrgUidHeader">func (*Config) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=3650:3701#L142">SetOrgUidHeader</a>
+					<a class="permalink" href="index.html#Config.SetOrgUidHeader">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg *<a href="index.html#Config">Config</a>) SetOrgUidHeader(tenantId <a href="http://localhost:6060/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Configure X-Upwork-API-TenantId header for OwnHttpClient
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Config.SetOwnHttpClient">func (*Config) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=4206:4278#L156">SetOwnHttpClient</a>
+					<a class="permalink" href="index.html#Config.SetOwnHttpClient">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cfg *<a href="index.html#Config">Config</a>) SetOwnHttpClient(ctx <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a>) <a href="http://localhost:6060/pkg/context/">context</a>.<a href="http://localhost:6060/pkg/context/#Context">Context</a></pre>
+				<p>
+Configure a context with the own http client over RoundTripper
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="HeadersTransport">type <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=906:1021#L23">HeadersTransport</a>
+				<a class="permalink" href="index.html#HeadersTransport">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type HeadersTransport struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="HeadersTransport.RoundTrip">func (*HeadersTransport) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/config.go?s=3339:3418#L131">RoundTrip</a>
+					<a class="permalink" href="index.html#HeadersTransport.RoundTrip">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (t *<a href="index.html#HeadersTransport">HeadersTransport</a>) RoundTrip(req *<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Request">Request</a>) (*<a href="http://localhost:6060/pkg/net/http/">http</a>.<a href="http://localhost:6060/pkg/net/http/#Response">Response</a>, <a href="http://localhost:6060/pkg/builtin/#error">error</a>)</pre>
+				<p>
+RoundTrip for the RoundTripper interface
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="NotifyingTokenSource">type <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=2169:2250#L66">NotifyingTokenSource</a>
+				<a class="permalink" href="index.html#NotifyingTokenSource">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+NotifyingTokenSource is an oauth2.TokenSource that calls a function when a
+new token is obtained.
+</p>
+
+			<pre>type NotifyingTokenSource struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewNotifyingTokenSource">func <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=3385:3478#L114">NewNotifyingTokenSource</a>
+					<a class="permalink" href="index.html#NewNotifyingTokenSource">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewNotifyingTokenSource(src <a href="http://localhost:6060/pkg/golang.org/x/oauth2/">oauth2</a>.<a href="http://localhost:6060/pkg/golang.org/x/oauth2/#TokenSource">TokenSource</a>, f <a href="index.html#TokenNotifyFunc">TokenNotifyFunc</a>) *<a href="index.html#NotifyingTokenSource">NotifyingTokenSource</a></pre>
+				<p>
+NewNotifyingTokenSource creates a NotifyingTokenSource from an underlying src
+and calls f when a new token is obtained.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="NotifyingTokenSource.Token">func (*NotifyingTokenSource) <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=3587:3648#L119">Token</a>
+					<a class="permalink" href="index.html#NotifyingTokenSource.Token">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (s *<a href="index.html#NotifyingTokenSource">NotifyingTokenSource</a>) Token() (*<a href="http://localhost:6060/pkg/golang.org/x/oauth2/">oauth2</a>.<a href="http://localhost:6060/pkg/golang.org/x/oauth2/#Token">Token</a>, <a href="http://localhost:6060/pkg/builtin/#error">error</a>)</pre>
+				<p>
+Token fetches a new token from the underlying source.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="TokenNotifyFunc">type <a href="http://localhost:6060/src/github.com/upwork/golang-upwork-oauth2/api/client.go?s=1983:2029#L60">TokenNotifyFunc</a>
+				<a class="permalink" href="index.html#TokenNotifyFunc">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+TokenNotifyFunc is a function that accepts an oauth2 Token upon refresh, and
+returns an error if it should not be used.
+</p>
+
+			<pre>type TokenNotifyFunc func(*<a href="http://localhost:6060/pkg/golang.org/x/oauth2/">oauth2</a>.<a href="http://localhost:6060/pkg/golang.org/x/oauth2/#Token">Token</a>) <a href="http://localhost:6060/pkg/builtin/#error">error</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="../index.html">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="routers/index.html">routers</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/activities/index.html">activities</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/activities/engagement/index.html">engagement</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/activities/team/index.html">team</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/auth/index.html">auth</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/freelancers/index.html">freelancers</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/freelancers/profile/index.html">profile</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/freelancers/search/index.html">search</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/graphql/index.html">graphql</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/hr/index.html">hr</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/clients/index.html">clients</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/hr/clients/applications/index.html">applications</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/hr/clients/offers/index.html">offers</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/contracts/index.html">contracts</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/engagements/index.html">engagements</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/freelancers/index.html">freelancers</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/hr/freelancers/applications/index.html">applications</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/hr/freelancers/offers/index.html">offers</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/interviews/index.html">interviews</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/jobs/index.html">jobs</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/milestones/index.html">milestones</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/roles/index.html">roles</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/hr/submissions/index.html">submissions</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/jobs/index.html">jobs</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/jobs/profile/index.html">profile</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/jobs/search/index.html">search</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/messages/index.html">messages</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/metadata/index.html">metadata</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/organization/index.html">organization</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/organization/companies/index.html">companies</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/organization/teams/index.html">teams</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/organization/users/index.html">users</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/payments/index.html">payments</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/reports/index.html">reports</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/reports/finance/index.html">finance</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/reports/finance/accounts/index.html">accounts</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/reports/finance/billings/index.html">billings</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 60px;">
+						<a href="routers/reports/finance/earnings/index.html">earnings</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 40px;">
+						<a href="routers/reports/time/index.html">time</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/snapshot/index.html">snapshot</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/workdays/index.html">workdays</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="routers/workdiary/index.html">workdiary</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						Router for Upwork API Licensed under the Upwork&#39;s API Terms of Use; you may not use this file except in compliance with the Terms.
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="barter">
+Build version go1.18.1.<br>
+Except as <a href="https://developers.google.com/site-policies#restrictions">noted</a>,
+the content of this page is licensed under the
+Creative Commons Attribution 3.0 License,
+and code is licensed under a <a href="http://localhost:6060/LICENSE">BSD license</a>.<br>
+<a href="https://golang.org/doc/tos.html">Terms of Service</a> |
+<a href="https://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
