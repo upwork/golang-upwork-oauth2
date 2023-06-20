@@ -1,3 +1,6 @@
+## 2.2.0
+* Add support for Client Credentials Grant
+
 ## 2.1.5
 * Add GraphQL support
 
