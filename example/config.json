@@ -3,7 +3,7 @@
 "client_secret": "YOUR_CONSUMER_SECRET",
 "redirect_uri": "https://a.callback.url",
 "__comment": "grant_type is only needed for Client Credentials Grant, otherwise can be removed",
-"grant_type": "client_credentials",
+"__grant_type": "client_credentials",
 "access_token": "access-token-if-known-otherwise-remove",
 "refresh_token": "access-token-if-known-otherwise-remove",
 "expires_at": "2018-01-01T01:00:00.000Z",

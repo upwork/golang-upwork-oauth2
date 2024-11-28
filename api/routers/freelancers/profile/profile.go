@@ -15,31 +15,32 @@
 package profile
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get specific Freelancer's Profile
 func (r a) GetSpecific(key string) (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/providers/" + key, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get brief info for the specific Freelancer's Profile
 func (r a) GetSpecificBrief(key string) (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/providers/" + key + "/brief", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

@@ -15,46 +15,47 @@
 package billings
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "gds"
+	EntryPoint = "gds"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Generate Billing Reports for a Specific Freelancer
 func (r a) GetByFreelancer(freelancerReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/providers/" + freelancerReference + "/billings", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generate Billing Reports for a Specific Freelancer's Team
 func (r a) GetByFreelancersTeam(freelancerTeamReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/provider_teams/" + freelancerTeamReference + "/billings", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generate Billing Reports for a Specific Freelancer's Company
 func (r a) GetByFreelancersCompany(freelancerCompanyReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/provider_companies/" + freelancerCompanyReference + "/billings", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generate Billing Reports for a Specific Buyer's Team
 func (r a) GetByBuyersTeam(buyerTeamReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/buyer_teams/" + buyerTeamReference + "/billings", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generate Billing Reports for a Specific Buyer's Company
 func (r a) GetByBuyersCompany(buyerCompanyReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/buyer_companies/" + buyerCompanyReference + "/billings", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

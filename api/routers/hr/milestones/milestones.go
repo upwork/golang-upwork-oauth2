@@ -15,56 +15,57 @@
 package milestones
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get active Milestone for the Contract
 func (r a) GetActiveMilestone(contractId string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v3/fp/milestones/statuses/active/contracts/" + contractId, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get all submissions for the active Milestone
 func (r a) GetSubmissions(milestoneId string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v3/fp/milestones/" + milestoneId + "/submissions", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Create a new Milestone
 func (r a) Create(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/hr/v3/fp/milestones", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Edit an existing Milestone
 func (r a) Edit(milestoneId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v3/fp/milestones/" + milestoneId, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Activate an existing Milestone
 func (r a) Activate(milestoneId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v3/fp/milestones/" + milestoneId + "/activate", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Approve an existing Milestone
 func (r a) Approve(milestoneId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v3/fp/milestones/" + milestoneId + "/approve", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Delete an existing Milestone
 func (r a) Delete(milestoneId string) (*http.Response, interface{}) {
-    return r.client.Delete("/hr/v3/fp/milestones/" + milestoneId , nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

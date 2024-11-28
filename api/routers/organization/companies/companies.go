@@ -15,41 +15,42 @@
 package companies
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get Companies List
 func (r a) GetList() (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/companies", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get Specific Company
 func (r a) GetSpecific(cmpReference string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/companies/" + cmpReference, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get Teams in Company
 func (r a) GetTeams(cmpReference string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/companies/" + cmpReference + "/teams", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get Users in Company
 func (r a) GetUsers(cmpReference string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/companies/" + cmpReference + "/users", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

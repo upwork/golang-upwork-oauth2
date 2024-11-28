@@ -15,66 +15,67 @@
 package time
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "gds"
+	EntryPoint = "gds"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Generate Time Reports for a Specific Team (with financial info)
 func (r a) GetByTeamFull(company string, team string, params map[string]string) (*http.Response, interface{}) {
-    return r.getByType(company, team, "", params, false)
+	return r.getByType(company, team, "", params, false)
 }
 
 // Generate Time Reports for a Specific Team (hide financial info)
 func (r a) GetByTeamFullLimited(company string, team string, params map[string]string) (*http.Response, interface{}) {
-    return r.getByType(company, team, "", params, true)
+	return r.getByType(company, team, "", params, true)
 }
 
 // Generating Agency Specific Reports
 func (r a) GetByAgency(company string, agency string, params map[string]string) (*http.Response, interface{}) {
-    return r.getByType(company, "", agency, params, false)
+	return r.getByType(company, "", agency, params, false)
 }
 
 // Generating Company Wide Reports
 func (r a) GetByCompany(company string, params map[string]string) (*http.Response, interface{}) {
-    return r.getByType(company, "", "", params, false)
+	return r.getByType(company, "", "", params, false)
 }
 
 // Generating Freelancer's Specific Reports (with financial info)
 func (r a) GetByFreelancerFull(freelancerId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/timereports/v1/providers/" + freelancerId, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generating Freelancer's Specific Reports (hide financial info)
 func (r a) GetByFreelancerLimited(freelancerId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/timereports/v1/providers/" + freelancerId + "/hours", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
-// Get by type 
+// Get by type
 func (r a) getByType(company string, team string, agency string, params map[string]string, hideFinDetails bool) (*http.Response, interface{}) {
-    url := ""
-    if team != "" {
-        url = "/teams/" + team
-        if hideFinDetails {
-            url = url + "/hours"
-        }
-    } else if agency != "" {
-        url = "/agencies/" + agency
-    }
+	url := ""
+	if team != "" {
+		url = "/teams/" + team
+		if hideFinDetails {
+			url = url + "/hours"
+		}
+	} else if agency != "" {
+		url = "/agencies/" + agency
+	}
 
-    return r.client.Get("/timereports/v1/companies/" + company + url, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

@@ -24,9 +24,7 @@ import (
 	_ "golang.org/x/oauth2" // uncomment if you need to work with oauth2.Token or other object, e.g. to store or re-cache token pair
 
 	"github.com/upwork/golang-upwork-oauth2/api"
-	"github.com/upwork/golang-upwork-oauth2/api/routers/auth"
-	_ "github.com/upwork/golang-upwork-oauth2/api/routers/graphql"  // uncomment to test graphql example
-	_ "github.com/upwork/golang-upwork-oauth2/api/routers/messages" // uncomment to test messages example
+	"github.com/upwork/golang-upwork-oauth2/api/routers/graphql"
 )
 
 const cfgFile = "config.json" // update the path to your config file, or provide properties directly in your code
@@ -105,45 +103,28 @@ func main() {
 	// use client.SetApiResponseType to specify the response type: use api.ByteResponse
 	// or api.ErrorResponse, see usage example below
 	// by default api.ByteResponse is used, i.e. []byte is returned as second value
-	_, jsonDataFromHttp1 := auth.New(&client).GetUserInfo()
-
-	// here you can Unmarshal received json string, or do any other action(s) if you used ByteResponse
-	fmt.Println(string(jsonDataFromHttp1.([]byte))) // []byte
-
 	// if you used ErrorResponse, like
 	// client.SetApiResponseType(api.ErrorResponse)
-	// httpResponse, err := auth.New(&client).GetUserInfo()
+	// httpResponse, err := graphql.New(&client).Execute(jsonData)
 	// if err == nil {
 	//     ... do smth with http.Response
 	// }
 
-	// run a post request using parameters as an example
-	// params := make(map[string]string)
-	// params["story"] = `{"message": "test message", "userId": "~017xxxxx"}`
-	// _, jsonDataFromHttp2 := messages.New(&client).SendMessageToRoom("company_id", "room_id", params)
-	// fmt.Println(string(jsonDataFromHttp2.([]byte)))
-
-	// getting reports example
-	// params := make(map[string]string)
-	// params["tq"] = "select memo where worked_on >= '05-08-2015'"
-	// params["tqx"] = "out:json"
-	// _, jsonDataFromHttp3 := timereports.New(&client).GetByFreelancerFull(params)
-	// fmt.Println(string(jsonDataFromHttp3.([]byte)))
-
 	// sending GraphQL request
-	// jsonData := map[string]string{
-	//     "query": `
-	//       {
-	//         user {
-	//           id
-	//           nid
-	//         }
-	//         organization {
-	//           id
-	//         }
-	//      }
-	//    `,
-	//  }
-	// _, jsonDataFromHttp4 := graphql.New(&client).Execute(jsonData)
-	// fmt.Println(string(jsonDataFromHttp4.([]byte)))
+	jsonData := map[string]string{
+	    "query": `
+	      {
+	        user {
+	          id
+	          nid
+	        }
+	        organization {
+	          id
+	        }
+	     }
+	   `,
+	 }
+	 _, jsonDataFromHttp := graphql.New(&client).Execute(jsonData)
+	// here you can Unmarshal received json string, or do any other action(s) if you used ByteResponse
+	fmt.Println(string(jsonDataFromHttp.([]byte)))
 }

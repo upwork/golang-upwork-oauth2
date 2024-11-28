@@ -15,36 +15,37 @@
 package snapshot
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get snapshot info by specific contract
 func (r a) GetByContract(contractId string, ts string) (*http.Response, interface{}) {
-    return r.client.Get("/team/v3/snapshots/contracts/" + contractId + "/" + ts, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Update snapshot by specific contract
 func (r a) UpdateByContract(contractId string, ts string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/team/v3/snapshots/contracts/" + contractId + "/" + ts, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Delete snapshot by specific contract
 func (r a) DeleteByContract(contractId string, ts string) (*http.Response, interface{}) {
-    return r.client.Delete("/team/v3/snapshots/contracts/" + contractId + "/" + ts, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

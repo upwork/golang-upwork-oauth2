@@ -36,5 +36,5 @@ func New(c *api.ApiClient) *a {
 
 // Get user info
 func (r a) GetUserInfo() (*http.Response, interface{}) {
-    return r.client.Get("/auth/v1/info", nil)
+    panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

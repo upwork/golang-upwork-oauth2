@@ -15,31 +15,32 @@
 package roles
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get user roles
 func (r a) GetAll() (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/userroles", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get by specific user
 func (r a) GetBySpecificUser(reference string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/userroles/" + reference, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

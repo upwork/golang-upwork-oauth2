@@ -15,74 +15,70 @@
 package team
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // List all oTask/Activity records within a team
 func (r a) GetList(company string, team string, params ...map[string]string) (*http.Response, interface{}) {
-    var p map[string]string
-    if params != nil {
-	p = params[0]
-    }
-    return r.getByType(company, team, "", p)
+	var p map[string]string
+	if params != nil {
+		p = params[0]
+	}
+	return r.getByType(company, team, "", p)
 }
 
 // List all oTask/Activity records within a team by specified code(s)
 func (r a) GetSpecificList(company string, team string, code string, params ...map[string]string) (*http.Response, interface{}) {
-    var p map[string]string
-    if params != nil {
-	p = params[0]
-    }
-    return r.getByType(company, team, code, p)
+	var p map[string]string
+	if params != nil {
+		p = params[0]
+	}
+	return r.getByType(company, team, code, p)
 }
 
 // Create an oTask/Activity record within a team
 func (r a) AddActivity(company string, team string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/tasks", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Update specific oTask/Activity record within a team
 func (r a) UpdateActivity(company string, team string, code string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/tasks/" + code, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Archive specific oTask/Activity record within a team
 func (r a) ArchiveActivity(company string, team string, code string) (*http.Response, interface{}) {
-    return r.client.Put("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/archive/" + code, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Unarchive specific oTask/Activity record within a team
 func (r a) UnarchiveActivity(company string, team string, code string) (*http.Response, interface{}) {
-    return r.client.Put("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/unarchive/" + code, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Update a group of oTask/Activity records
 func (r a) UpdateBatch(company string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/otask/v1/tasks/companies/" + company + "/tasks/batch", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
-// Get by type 
+// Get by type
 func (r a) getByType(company string, team string, code string, params map[string]string) (*http.Response, interface{}) {
-    url := ""
-    if code != "" {
-        url = "/" + code;
-    }
-
-    return r.client.Get("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/tasks" + url, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
