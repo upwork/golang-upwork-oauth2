@@ -80,10 +80,5 @@ func (r a) UpdateBatch(company string, params map[string]string) (*http.Response
 
 // Get by type
 func (r a) getByType(company string, team string, code string, params map[string]string) (*http.Response, interface{}) {
-	url := ""
-	if code != "" {
-		url = "/" + code
-	}
-
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
