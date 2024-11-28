@@ -15,36 +15,37 @@
 package engagement
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // List activities for specific engagement
 func (r a) GetSpecific(engagementRef string) (*http.Response, interface{}) {
-    return r.client.Get("/tasks/v2/tasks/contracts/" + engagementRef, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Assign engagements to the list of activities
 func (r a) Assign(company string, team string, engagement string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/otask/v1/tasks/companies/" + company + "/teams/" + team + "/engagements/" + engagement + "/tasks", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Assign to specific engagement the list of activities
 func (r a) AssignToEngagement(engagementRef string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/tasks/v2/tasks/contracts/" + engagementRef, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

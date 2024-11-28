@@ -15,31 +15,32 @@
 package accounts
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "gds"
+	EntryPoint = "gds"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Generate Financial Reports for an owned Account
 func (r a) GetOwned(freelancerReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/financial_account_owner/" + freelancerReference, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Generate Financial Reports for a Specific Account
 func (r a) GetSpecific(entityReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/finreports/v2/financial_accounts/" + entityReference, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

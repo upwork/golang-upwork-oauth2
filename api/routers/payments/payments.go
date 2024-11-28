@@ -15,26 +15,27 @@
 package payments
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Submit a Custom Payment
 func (r a) SubmitBonus(teamReference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/hr/v2/teams/" + teamReference + "/adjustments", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

@@ -15,36 +15,37 @@
 package submissions
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Freelancer submits work for the client to approve
 func (r a) RequestApproval(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/hr/v3/fp/submissions", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Approve an existing Submission
 func (r a) Approve(submissionId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v3/fp/submissions/" + submissionId + "/approve", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Reject an existing Submission
 func (r a) Reject(submissionId string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v3/fp/submissions/" + submissionId + "/reject", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

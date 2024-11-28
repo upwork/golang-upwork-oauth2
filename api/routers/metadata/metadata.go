@@ -15,56 +15,57 @@
 package metadata
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get categories (V2)
 func (r a) GetCategoriesV2() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v2/metadata/categories", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get skills
 func (r a) GetSkills() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/metadata/skills", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get skills (V2)
 func (r a) GetSkillsV2() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v2/metadata/skills", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get specialties
 func (r a) GetSpecialties() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/metadata/specialties", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get regions
 func (r a) GetRegions() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/metadata/regions", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get tests
 func (r a) GetTests() (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/metadata/tests", nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get reasons
 func (r a) GetReasons(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v1/metadata/reasons", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

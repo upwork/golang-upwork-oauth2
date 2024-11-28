@@ -15,31 +15,32 @@
 package workdays
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get Workdays by Company
 func (r a) GetByCompany(company string, fromDate string, tillDate string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/team/v3/workdays/companies/" + company + "/" + fromDate + "," + tillDate, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get Workdays by Contract
 func (r a) GetByContract(contract string, fromDate string, tillDate string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/team/v3/workdays/contracts/" + contract + "/" + fromDate + "," + tillDate, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

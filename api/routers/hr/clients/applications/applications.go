@@ -15,31 +15,32 @@
 package applications
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get list of applications
 func (r a) GetList(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v4/clients/applications", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get specific application
 func (r a) GetSpecific(reference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v4/clients/applications/" + reference, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

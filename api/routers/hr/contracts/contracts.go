@@ -15,36 +15,37 @@
 package contracts
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Suspend Contract
 func (r a) SuspendContract(reference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v2/contracts/" + reference + "/suspend", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Restart Contract
 func (r a) RestartContract(reference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v2/contracts/" + reference + "/restart", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // End Contract
 func (r a) EndContract(reference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Delete("/hr/v2/contracts/" + reference, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

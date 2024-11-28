@@ -15,26 +15,27 @@
 package search
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Search jobs
 func (r a) Find(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/profiles/v2/search/jobs", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

@@ -15,36 +15,37 @@
 package offers
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get list of offers
 func (r a) GetList(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/offers/v1/contractors/offers", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get specific offer
 func (r a) GetSpecific(reference string) (*http.Response, interface{}) {
-    return r.client.Get("/offers/v1/contractors/offers/" + reference, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Run a specific action
 func (r a) MakeOffer(reference string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/offers/v1/contractors/offers/" + reference, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

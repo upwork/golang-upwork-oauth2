@@ -15,46 +15,47 @@
 package jobs
 
 import (
-    "net/http"
-    "github.com/upwork/golang-upwork-oauth2/api"
+	"net/http"
+
+	"github.com/upwork/golang-upwork-oauth2/api"
 )
 
 const (
-    EntryPoint = "api"
+	EntryPoint = "api"
 )
 
 type a struct {
-    client *api.ApiClient
+	client *api.ApiClient
 }
 
 // Constructor
 func New(c *api.ApiClient) *a {
-    c.SetEntryPoint(EntryPoint)
+	c.SetEntryPoint(EntryPoint)
 
-    return &a{c}
+	return &a{c}
 }
 
 // Get list of jobs
 func (r a) GetList(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/jobs", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Get specific job by key
 func (r a) GetSpecific(key string) (*http.Response, interface{}) {
-    return r.client.Get("/hr/v2/jobs/" + key, nil)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Post a new job
 func (r a) PostJob(params map[string]string) (*http.Response, interface{}) {
-    return r.client.Post("/hr/v2/jobs", params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Edit existent job
 func (r a) EditJob(key string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Put("/hr/v2/jobs/" + key, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
 // Delete existent job
 func (r a) DeleteJob(key string, params map[string]string) (*http.Response, interface{}) {
-    return r.client.Delete("/hr/v2/jobs/" + key, params)
+	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
