@@ -80,7 +80,7 @@ func (r a) SendMessageToRooms(company string, params map[string]string) (*http.R
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
-// Update a room settings
+// Update room settings
 func (r a) UpdateRoomSettings(company string, roomId string, username string, params map[string]string) (*http.Response, interface{}) {
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

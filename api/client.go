@@ -1,4 +1,4 @@
-// Package implements access to Upwork API
+// Package api implements access to Upwork API
 //
 // Licensed under the Upwork's API Terms of Use;
 // you may not use this file except in compliance with the Terms.
