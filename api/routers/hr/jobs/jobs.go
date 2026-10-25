@@ -50,12 +50,12 @@ func (r a) PostJob(params map[string]string) (*http.Response, interface{}) {
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
-// Edit existent job
+// Edit an existing job
 func (r a) EditJob(key string, params map[string]string) (*http.Response, interface{}) {
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }
 
-// Delete existent job
+// Delete an existing job
 func (r a) DeleteJob(key string, params map[string]string) (*http.Response, interface{}) {
 	panic("The legacy API was deprecated. Please, use GraphQL call - see example in this library.")
 }

@@ -16,9 +16,9 @@ package main
 
 import (
 	"bufio"
-	"context" // uncomment if you need to setup a custom http client
+	"context" // uncomment if you need to set up a custom http client
 	"fmt"
-	_ "net/http" // uncomment if you need to setup a custom http client
+	_ "net/http" // uncomment if you need to set up a custom http client
 	"os"
 
 	_ "golang.org/x/oauth2" // uncomment if you need to work with oauth2.Token or other object, e.g. to store or re-cache token pair
@@ -45,7 +45,7 @@ func main() {
 	   config.Print()
 	*/
 
-	/* it is possible to setup a custom http client if needed
+	/* it is possible to set up a custom http client if needed
 	   httpClient := &http.Client{Timeout: 2}
 	   config := api.ReadConfig(cfgFile)
 	   ctx = config.SetCustomHttpClient(ctx, httpClient)
@@ -53,11 +53,11 @@ func main() {
 	*/
 	ctx = context.TODO() // define NoContext if you do not use a custom client, otherwise use earlier defined context
 	client := api.Setup(api.ReadConfig(cfgFile))
-	// You can configure the package send the requests as application/json, by default PostForm is used.
-	// This will be automatically set to true for GraphQL request
+	// You can configure the package to send the requests as application/json, by default PostForm is used.
+	// This will be automatically set to true for GraphQL requests
 	// client.SetPostAsJson(true)
 
-	// GraphQL requests require X-Upwork-API-TenantId header, which can be setup using the following method
+	// GraphQL requests require X-Upwork-API-TenantId header, which can be set up using the following method
 	// client.SetOrgUidHeader(ctx, "1234567890") // Organization UID (optional)
 
 	/*
